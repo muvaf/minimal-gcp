@@ -11,6 +11,8 @@ spec:
     kind: MinimalGCP
     plural: minimalgcps
   scope: Cluster
+  subresources:
+    status: {}
   validation:
     openAPIV3Schema:
       description: MinimalGCP is the Schema for the minimalgcps API

@@ -48,6 +48,7 @@ func (mg *MinimalGCP) SetConditions(c ...v1alpha1.Condition) {
 
 // +kubebuilder:object:root=true
 // +kubebuilder:resource:scope=Cluster
+// +kubebuilder:subresource:status
 
 // MinimalGCP is the Schema for the minimalgcps API
 type MinimalGCP struct {

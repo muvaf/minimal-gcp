@@ -300,6 +300,11 @@ github.com/munnerz/goautoneg v0.0.0-20120707110453-a547fc61f48d/go.mod h1:+n7T8m
 github.com/muvaf/configuration-stacks v0.0.0-20191206143507-00e788be6c42 h1:ySmS4U5uVBSYWN9uDE0BGUtZ1jI0FV60TxERSvOLEt4=
 github.com/muvaf/configuration-stacks v0.0.0-20191206174527-cb45ede32300 h1:J+WRXKIX68Kuaq/eZ8DyIPlfqHsDGdPfQ2lEW/Vz7jA=
 github.com/muvaf/configuration-stacks v0.0.0-20191206174527-cb45ede32300/go.mod h1:KGb0AHuhOUlZL05whFyUkGWjj9PAMmtjzqTzqfnol9k=
+github.com/muvaf/configuration-stacks v0.0.0-20191206181204-208436120d7f/go.mod h1:KGb0AHuhOUlZL05whFyUkGWjj9PAMmtjzqTzqfnol9k=
+github.com/muvaf/configuration-stacks v0.0.0-20191206181256-51b29cd3435e h1:/BoYZK6sQVv5EmynBrQDcYMjZ+OXPpcuNqTqlNTG7Vc=
+github.com/muvaf/configuration-stacks v0.0.0-20191206181256-51b29cd3435e/go.mod h1:jbgf53b9GiBK32W46Pt1LFiILdE55ZISyuyXYXwqsAk=
+github.com/muvaf/configuration-stacks v0.0.0-20191206183822-9da5ea04a18d h1:GI15XAYP+IGA9m+5pZLh1zp9RQQblzheNLxLRv/+ctI=
+github.com/muvaf/configuration-stacks v0.0.0-20191206183822-9da5ea04a18d/go.mod h1:jbgf53b9GiBK32W46Pt1LFiILdE55ZISyuyXYXwqsAk=
 github.com/muvaf/crossplane-runtime v0.0.0-20191206111112-1fe048748dc5 h1:xC/O7vFbYKSB3DrTUdLaypGRbPPp4NVEHaIz4KSVsS4=
 github.com/muvaf/crossplane-runtime v0.0.0-20191206111112-1fe048748dc5/go.mod h1:GrCvlrdasBDhBo6Nj/DWpoGTlNYpxf6n2O4MUjNNbdw=
 github.com/mwitkow/go-conntrack v0.0.0-20161129095857-cc309e4a2223/go.mod h1:qRWi+5nqEBWmkhHvq77mSJWrCKwh8bxhgT7d/eI7P4U=
@@ -606,6 +611,8 @@ k8s.io/apiextensions-apiserver v0.0.0-20190918161926-8f644eb6e783/go.mod h1:xvae
 k8s.io/apimachinery v0.0.0-20190404173353-6a84e37a896d/go.mod h1:ccL7Eh7zubPUSh9A3USN90/OzHNSVN6zxzde07TDCL0=
 k8s.io/apimachinery v0.0.0-20190913080033-27d36303b655 h1:CS1tBQz3HOXiseWZu6ZicKX361CZLT97UFnnPx0aqBw=
 k8s.io/apimachinery v0.0.0-20190913080033-27d36303b655/go.mod h1:nL6pwRT8NgfF8TT68DBI8uEePRt89cSvoXUVqbkWHq4=
+k8s.io/apimachinery v0.0.0-20191203211716-adc6f4cd9e7d h1:q+OZmYewHJeMCzwpHkXlNTtk5bvaUMPCikKvf77RBlo=
+k8s.io/apimachinery v0.0.0-20191203211716-adc6f4cd9e7d/go.mod h1:b9qmWdKlLuU9EBh+06BtLcSf/Mu89rWL33naRxs1uZg=
 k8s.io/apiserver v0.0.0-20190918160949-bfa5e2e684ad/go.mod h1:XPCXEwhjaFN29a8NldXA901ElnKeKLrLtREO9ZhFyhg=
 k8s.io/client-go v0.0.0-20190918160344-1fbdaa4c8d90 h1:mLmhKUm1X+pXu0zXMEzNsOF5E2kKFGe5o6BZBIIqA6A=
 k8s.io/client-go v0.0.0-20190918160344-1fbdaa4c8d90/go.mod h1:J69/JveO6XESwVgG53q3Uz5OSfgsv4uxpScmmyYOOlk=

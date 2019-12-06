@@ -1,0 +1,7 @@
+commonLabels:
+  gcp.configurationstacks.crossplane.io/name: muvaf-minimal-setup
+  gcp.configurationstacks.crossplane.io/uid: 83f20623-0ccb-41cf-bdd4-fc4ae2723b4e
+kind: Kustomization
+namePrefix: muvaf-minimal-setup-
+resources:
+- gcp
