@@ -20,6 +20,8 @@ limitations under the License.
 package v1alpha1
 
 import (
+	"reflect"
+
 	"k8s.io/apimachinery/pkg/runtime/schema"
 	"sigs.k8s.io/controller-runtime/pkg/scheme"
 )
@@ -33,4 +35,11 @@ var (
 
 	// AddToScheme adds the types in this group-version to the given scheme.
 	AddToScheme = SchemeBuilder.AddToScheme
+)
+
+// MinimalGCP type metadata.
+var (
+	MinimalGCPKind             = reflect.TypeOf(MinimalGCP{}).Name()
+	MinimalGCPKindAPIVersion   = MinimalGCPKind + "." + GroupVersion.String()
+	MinimalGCPGroupVersionKind = GroupVersion.WithKind(MinimalGCPKind)
 )

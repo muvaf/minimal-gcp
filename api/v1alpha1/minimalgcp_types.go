@@ -17,6 +17,7 @@ limitations under the License.
 package v1alpha1
 
 import (
+	"github.com/crossplaneio/crossplane-runtime/apis/core/v1alpha1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -34,8 +35,15 @@ type MinimalGCPSpec struct {
 
 // MinimalGCPStatus defines the observed state of MinimalGCP
 type MinimalGCPStatus struct {
-	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
+	v1alpha1.ConditionedStatus `json:",inline"`
+}
+
+func (mg *MinimalGCP) GetCondition(ct v1alpha1.ConditionType) v1alpha1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+func (mg *MinimalGCP) SetConditions(c ...v1alpha1.Condition) {
+	mg.Status.SetConditions(c...)
 }
 
 // +kubebuilder:object:root=true

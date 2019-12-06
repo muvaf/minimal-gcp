@@ -17,9 +17,8 @@ limitations under the License.
 package controllers
 
 import (
-	"context"
-
 	"github.com/go-logr/logr"
+	"github.com/muvaf/configuration-stacks/pkg/controllers"
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
@@ -34,20 +33,9 @@ type MinimalGCPReconciler struct {
 	Scheme *runtime.Scheme
 }
 
-// +kubebuilder:rbac:groups=gcp.configurationstacks.crossplane.io,resources=minimalgcps,verbs=get;list;watch;create;update;patch;delete
-// +kubebuilder:rbac:groups=gcp.configurationstacks.crossplane.io,resources=minimalgcps/status,verbs=get;update;patch
-
-func (r *MinimalGCPReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
-	_ = context.Background()
-	_ = r.Log.WithValues("minimalgcp", req.NamespacedName)
-
-	// your logic here
-
-	return ctrl.Result{}, nil
-}
-
 func (r *MinimalGCPReconciler) SetupWithManager(mgr ctrl.Manager) error {
+	csr := controllers.NewConfigurationStackReconciler(mgr, gcpv1alpha1.MinimalGCPGroupVersionKind)
 	return ctrl.NewControllerManagedBy(mgr).
 		For(&gcpv1alpha1.MinimalGCP{}).
-		Complete(r)
+		Complete(csr)
 }
