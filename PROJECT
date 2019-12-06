@@ -1,0 +1,7 @@
+domain: configurationstacks.crossplane.io
+repo: github.com/crossplaneio/minimal-gcp
+resources:
+- group: gcp
+  kind: MinimalGCP
+  version: v1alpha1
+version: "2"

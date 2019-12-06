@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "muvaf-minimal-gcp"
+  labels:
+    core.crossplane.io/name: "muvaf-minimal-gcp"
+spec:
+  selector:
+    matchLabels:
+      core.crossplane.io/name: "muvaf-minimal-gcp"
+  replicas: 1
+  template:
+    metadata:
+      name: "muvaf-minimal-gcp-controller"
+      labels:
+        core.crossplane.io/name: "muvaf-minimal-gcp"
+    spec:
+      containers:
+      - name: "muvaf-minimal-gcp-controller"
+        image: "muvaf/minimal-gcp"
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
