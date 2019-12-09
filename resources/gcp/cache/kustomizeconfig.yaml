@@ -7,3 +7,6 @@ nameReference:
     fieldSpecs:
       - path: specTemplate/providerRef/name
         kind: CloudMemoryInstanceClass
+varReference:
+  - path: specTemplate/forProvider/locationID
+    kind: CloudMemorystoreInstanceClass

@@ -11,3 +11,6 @@ nameReference:
     fieldSpecs:
       - path: specTemplate/providerRef/name
         kind: CloudSQLInstanceClass
+varReference:
+  - path: specTemplate/forProvider/region
+    kind: CloudSQLInstanceClass

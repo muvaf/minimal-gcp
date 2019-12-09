@@ -10,7 +10,7 @@ specTemplate:
   reclaimPolicy: Delete
   forProvider:
     databaseVersion: POSTGRES_9_6
-    region: us-west2
+    region: $(REGION)
     settings:
       tier: db-n1-standard-1
       dataDiskType: PD_SSD

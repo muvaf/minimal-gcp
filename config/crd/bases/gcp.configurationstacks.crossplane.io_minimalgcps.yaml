@@ -32,9 +32,8 @@ spec:
         spec:
           description: MinimalGCPSpec defines the desired state of MinimalGCP
           properties:
-            foo:
-              description: Foo is an example field of MinimalGCP. Edit MinimalGCP_types.go
-                to remove/update
+            region:
+              description: Region of the resources that will be deployed.
               type: string
           type: object
         status:

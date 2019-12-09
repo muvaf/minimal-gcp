@@ -1,3 +1,0 @@
-varReference:
-  - path: spec/forProvider/region
-    kind: CloudMemorystoreInstanceClass

@@ -3,9 +3,6 @@ namePrefix: muvaf-minimal-setup-
 resources:
 - gcp
 - cr.yaml
-configurations:
-- kustomizeconfig.yaml
-
 
 # Configuration stack controller will add specific customizations like
 # below.
@@ -22,6 +19,7 @@ vars:
 - name: REGION
   objref:
     kind: MinimalGCP
-    apiVersion: v1alpha1
+    apiVersion: gcp.configurationstacks.crossplane.io/v1alpha1
+    name: ""
   fieldref:
     fieldpath: spec.region

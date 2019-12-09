@@ -29,3 +29,8 @@ nameReference:
         kind: GlobalAddress
       - path: specTemplate/providerRef/name
         kind: GKEClusterClass
+varReference:
+  - path: specTemplate/locations
+    kind: GKEClusterClass
+  - path: spec/region
+    kind: Subnetwork

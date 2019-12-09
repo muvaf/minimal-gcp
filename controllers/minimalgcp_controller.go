@@ -53,13 +53,7 @@ func (r *MinimalGCPReconciler) SetupWithManager(mgr ctrl.Manager) error {
 							}
 						}),
 				}),
-		),controllers.WithPreApplyOverrides(resource.PreApplyOverriderFunc(func(cr resource.ParentResource, list []resource.ChildResource) {
-			for _, res := range list {
-				if res.GetObjectKind().GroupVersionKind() == cr.GetObjectKind().GroupVersionKind() {
-					res = nil
-				}
-			}
-		})))
+		))
 	return ctrl.NewControllerManagedBy(mgr).
 		For(&gcpv1alpha1.MinimalGCP{}).
 		Complete(csr)

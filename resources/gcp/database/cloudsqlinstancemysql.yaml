@@ -10,7 +10,7 @@ specTemplate:
     name: gcp-provider
   forProvider:
     databaseVersion: MYSQL_5_7
-    region: us-west2
+    region: $(REGION)
     settings:
       tier: db-n1-standard-1
       dataDiskType: PD_SSD
