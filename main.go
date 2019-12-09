@@ -23,7 +23,6 @@ import (
 	gcpv1alpha1 "github.com/crossplaneio/minimal-gcp/api/v1alpha1"
 	"github.com/crossplaneio/minimal-gcp/controllers"
 	"k8s.io/apimachinery/pkg/runtime"
-	clientgoscheme "k8s.io/client-go/kubernetes/scheme"
 	_ "k8s.io/client-go/plugin/pkg/client/auth/gcp"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
@@ -36,7 +35,7 @@ var (
 )
 
 func init() {
-	_ = clientgoscheme.AddToScheme(scheme)
+	//_ = clientgoscheme.AddToScheme(scheme)
 
 	_ = gcpv1alpha1.AddToScheme(scheme)
 	// +kubebuilder:scaffold:scheme
