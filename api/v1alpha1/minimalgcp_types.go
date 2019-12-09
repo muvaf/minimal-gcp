@@ -21,16 +21,18 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
-// EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
-// NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
-
 // MinimalGCPSpec defines the desired state of MinimalGCP
 type MinimalGCPSpec struct {
-	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
+	// CredentialsSecretRef refers to the secret and its key that contains
+	// the required credentials to connect to GCP.
+	CredentialsSecretRef v1alpha1.SecretKeySelector `json:"credentialsSecretRef"`
+
+	// ProjectID is the ID of the project in GCP that the resource will be
+	// provisioned in.
+	ProjectID string `json:"projectID"`
 
 	// Region of the resources that will be deployed.
-	Region string `json:"region,omitempty"`
+	Region string `json:"region"`
 }
 
 // MinimalGCPStatus defines the observed state of MinimalGCP

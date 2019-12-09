@@ -1,10 +1,8 @@
 kind: Kustomization
-namePrefix: muvaf-minimal-setup-
 resources:
 - gcp
-- cr.yaml
 
-# Configuration stack controller will add specific customizations like
+# Configuration stack controller will add specific kustomizations like
 # below.
 
 #namePrefix: CRNAME-
@@ -15,11 +13,39 @@ resources:
 
 # var with kind MinimalGCP will be populated with the name of the CR that is dumped
 # to here as resource.
-vars:
-- name: REGION
-  objref:
-    kind: MinimalGCP
-    apiVersion: gcp.configurationstacks.crossplane.io/v1alpha1
-    name: ""
-  fieldref:
-    fieldpath: spec.region
+#vars:
+#- name: REGION
+#  objref:
+#    kind: MinimalGCP
+#    apiVersion: gcp.configurationstacks.crossplane.io/v1alpha1
+#    name: ""
+#  fieldref:
+#    fieldpath: spec.region
+#- name: GCP_PROJECT_ID
+#  objref:
+#    kind: MinimalGCP
+#    apiVersion: gcp.configurationstacks.crossplane.io/v1alpha1
+#    name: ""
+#  fieldref:
+#    fieldpath: spec.projectID
+#- name: CRED_SECRET_KEY
+#  objref:
+#    kind: MinimalGCP
+#    apiVersion: gcp.configurationstacks.crossplane.io/v1alpha1
+#    name: ""
+#  fieldref:
+#    fieldpath: spec.credentialsSecretRef.key
+#- name: CRED_SECRET_NAME
+#  objref:
+#    kind: MinimalGCP
+#    apiVersion: gcp.configurationstacks.crossplane.io/v1alpha1
+#    name: ""
+#  fieldref:
+#    fieldpath: spec.credentialsSecretRef.name
+#- name: CRED_SECRET_NAMESPACE
+#  objref:
+#    kind: MinimalGCP
+#    apiVersion: gcp.configurationstacks.crossplane.io/v1alpha1
+#    name: ""
+#  fieldref:
+#    fieldpath: spec.credentialsSecretRef.namespace
