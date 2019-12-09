@@ -19,9 +19,12 @@ package controllers
 import (
 	"github.com/go-logr/logr"
 	"github.com/muvaf/configuration-stacks/pkg/controllers"
+	"github.com/muvaf/configuration-stacks/pkg/operations"
+	"github.com/muvaf/configuration-stacks/pkg/resource"
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
+	"sigs.k8s.io/kustomize/api/types"
 
 	gcpv1alpha1 "github.com/crossplaneio/minimal-gcp/api/v1alpha1"
 )
@@ -34,7 +37,29 @@ type MinimalGCPReconciler struct {
 }
 
 func (r *MinimalGCPReconciler) SetupWithManager(mgr ctrl.Manager) error {
-	csr := controllers.NewConfigurationStackReconciler(mgr, gcpv1alpha1.MinimalGCPGroupVersionKind)
+	csr := controllers.NewConfigurationStackReconciler(mgr, gcpv1alpha1.MinimalGCPGroupVersionKind,
+		controllers.WithKustomizeOperation(
+			operations.NewKustomizeOperation("resources",
+				resource.KustomizeOverriderChain{
+					&resource.NamePrefixer{},
+					&resource.LabelPropagator{},
+					resource.KustomizeOverriderFunc(
+						func(cr resource.ParentResource, k *types.Kustomization) {
+							for _, variant := range k.Vars {
+								if variant.ObjRef.APIVersion == cr.GetObjectKind().GroupVersionKind().GroupVersion().String() {
+									variant.ObjRef.Name = cr.GetName()
+									variant.ObjRef.Namespace = cr.GetNamespace()
+								}
+							}
+						}),
+				}),
+		),controllers.WithPreApplyOverrides(resource.PreApplyOverriderFunc(func(cr resource.ParentResource, list []resource.ChildResource) {
+			for _, res := range list {
+				if res.GetObjectKind().GroupVersionKind() == cr.GetObjectKind().GroupVersionKind() {
+					res = nil
+				}
+			}
+		})))
 	return ctrl.NewControllerManagedBy(mgr).
 		For(&gcpv1alpha1.MinimalGCP{}).
 		Complete(csr)

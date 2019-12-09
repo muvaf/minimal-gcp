@@ -1,7 +1,27 @@
-commonLabels:
-  gcp.configurationstacks.crossplane.io/name: muvaf-minimal-setup
-  gcp.configurationstacks.crossplane.io/uid: 83f20623-0ccb-41cf-bdd4-fc4ae2723b4e
 kind: Kustomization
 namePrefix: muvaf-minimal-setup-
 resources:
 - gcp
+- cr.yaml
+configurations:
+- kustomizeconfig.yaml
+
+
+# Configuration stack controller will add specific customizations like
+# below.
+
+#namePrefix: CRNAME-
+#commonLabels:
+#  gcp.configurationstacks.crossplane.io/name: muvaf-minimal-setup
+#  gcp.configurationstacks.crossplane.io/uid: 83f20623-0ccb-41cf-bdd4-fc4ae2723b4e
+#
+
+# var with kind MinimalGCP will be populated with the name of the CR that is dumped
+# to here as resource.
+vars:
+- name: REGION
+  objref:
+    kind: MinimalGCP
+    apiVersion: v1alpha1
+  fieldref:
+    fieldpath: spec.region
